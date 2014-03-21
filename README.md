@@ -1,0 +1,4 @@
+Embargocoin
+===========
+
+Embargocoin source
