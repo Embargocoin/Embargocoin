@@ -36,7 +36,7 @@ return 0;
 
  // If lookup is -1, then use blocks since last difficulty change.
  if (lookup <= 0)
- lookup = pb->nHeight % 2016 + 1;
+ lookup = pb->nHeight % 2 + 1;
 
  // If lookup is larger than chain, then set it to chain length.
  if (lookup > pb->nHeight)
@@ -71,7 +71,7 @@ Value getnetworkhashps(const Array& params, bool fHelp)
  "Pass in [blocks] to override # of blocks, -1 specifies since last difficulty change.\n"
  "Pass in [height] to estimate the network speed at the time when a certain block was found.");
 
-return GetNetworkHashPS(params.size() > 0 ? params[0].get_int() : 120, params.size() > 1 ? params[1].get_int() : -1);
+return GetNetworkHashPS(params.size() > 0 ? params[0].get_int() : 4, params.size() > 1 ? params[1].get_int() : -1);
  }
 
 Value getgenerate(const Array& params, bool fHelp)
