@@ -55,7 +55,7 @@ sudo swapon /swapfile
 
 ##Note
 ````
-This is a fork of MazaCoin that works on OSX Mavericks with brew. Use at your own risk.
+This is a fork of Bitcoin/Zetacoin/MazaCoin that works on OSX Mavericks with brew. Use at your own risk.
 ````
 ##License
 ````

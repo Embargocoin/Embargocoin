@@ -1295,7 +1295,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 	
 	
     // Mining phase: Subsidy is cut in half every SubsidyHalvingInterval
-    nSubsidy >>= ((nHeight - 2267) / Params().SubsidyHalvingInterval());
+    nSubsidy >>= ((nHeight - 2266) / Params().SubsidyHalvingInterval());
 
     // Inflation phase: Subsidy reaches minimum subsidy
     // Network is rewarded for transaction processing with transaction fees and
@@ -1308,9 +1308,9 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     return nSubsidy + nFees;
 }
 
-static const int64 nTargetTimespan = 20 * 60; // 20 minutes
+static const int64 nTargetTimespan = 2 * 20 * 60; // 40 minutes
 static const int64 nTargetSpacing = 1200; // 20 minutes
-static const int64 nInterval = nTargetTimespan / nTargetSpacing; // 1 block
+static const int64 nInterval = nTargetTimespan / nTargetSpacing; // 2 blocks
 
 
 
@@ -2382,7 +2382,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
         return state.DoS(50, error("CheckBlock() : proof of work failed"));
 
     // Check timestamp
-    if (block.GetBlockTime() > GetAdjustedTime() + 2 * 60 * 60)
+    if (block.GetBlockTime() > GetAdjustedTime() + 20 * 60)
         return state.Invalid(error("CheckBlock() : block timestamp too far in the future"));
 
     // First transaction must be coinbase, the rest must not be

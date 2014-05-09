@@ -39,7 +39,7 @@ public:
         // Build the genesis block. Note that the output of the genesis coinbase cannot
         // be spent as it did not originally exist in the database.
 
-        const char* pszTimestamp = "March 16, 2014: Embargocoin is going for a test";
+        const char* pszTimestamp = "April 12, 2014 Israel imposes new sanctions against Palestinians";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -50,16 +50,16 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime    = 1395031046;
-        genesis.nBits    = 0x1e0ffff0;
-        genesis.nNonce   = 2161882880;
+        genesis.nTime    = 1397792497;
+        genesis.nBits    = 0x1e0fffff;
+        genesis.nNonce   = 2162372148;
 
         //// debug print
         hashGenesisBlock = genesis.GetHash();
-        //while (hashGenesisBlock > bnProofOfWorkLimit.getuint256()){
-        //   if (++genesis.nNonce==0) break;
-        //    hashGenesisBlock = genesis.GetHash();
-        //}
+//        while (hashGenesisBlock > bnProofOfWorkLimit.getuint256()){
+  //         if (++genesis.nNonce==0) break;
+    //        hashGenesisBlock = genesis.GetHash();
+      //  }
 
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", genesis.hashMerkleRoot.ToString().c_str());
@@ -67,13 +67,12 @@ public:
         genesis.print();
 
 
-        assert(hashGenesisBlock == uint256("0x000001b6fb407cdda5363263807e253d5a6f4eb1658eec7d7be3e8af77b15f15"));
-        assert(genesis.hashMerkleRoot == uint256("0xdfa47fdd1fae52d78e47130c48915b75e03de3c6a19c0c8fea05cff61d0ce8fe"));
+        assert(hashGenesisBlock == uint256("0x00000238e5f8d1cc3004dd6d45f97f6ef218a267909066501be07dd9e29ccb32"));
+        assert(genesis.hashMerkleRoot == uint256("0x22f4528d1f5992d8cd09f8a5ea2994d80d44c16fcd5b18f77cbc0f0c13e32613"));
 
 
-        vSeeds.push_back(CDNSSeedData("lesaandtom.com", "lesaandtom.com"));
-		vSeeds.push_back(CDNSSeedData("192.168.0.6", "192.168.0.6"));
-        base58Prefixes[PUBKEY_ADDRESS] = 33;
+        vSeeds.push_back(CDNSSeedData("node.embargocoin.com", "node.embargocoin.com"));
+		base58Prefixes[PUBKEY_ADDRESS] = 33;
         base58Prefixes[SCRIPT_ADDRESS] = 9;
         base58Prefixes[SECRET_KEY] = 224;
 
